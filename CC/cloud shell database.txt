@@ -1,4 +1,4 @@
-Create Database and Table in GCP 
+Create Database and Table in Google Cloud Platform 
 
 1. Dashboard -> Navigation -> Databases -> SQL 
 2. Create Instance
@@ -13,7 +13,9 @@ gcloud sql connect my-sql-instance --user=root
 Enter password xxxxxxxxxxxx
 
 mysql> CREATE DATABASE db_raw;
+
 mysql> USE db_raw;
+
 mysql> CREATE TABLE raw (
 	Order_ID VARCHAR (50) NOT NULL,
 	Size INT,
