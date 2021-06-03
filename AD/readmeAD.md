@@ -1,1 +1,1 @@
-# Android Development Source Code (Sepiiiiiiii)
+# Android Development Source Code
