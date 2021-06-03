@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TemanIKM</string>
+    <string name="title_activity_order_info">OrderInfoActivity</string>
+    <string name="tab_text_1">Harian</string>
+    <string name="tab_text_2">Mingguan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="status">status pengerjaan</string>
+    <string name="barang_name">Nama Barang</string>
+    <string name="description">deskripsi singkat order</string>
+    <string name="submit">Submit</string>
+    <string name="banyak">Banyak Barang</string>
+    <string name="delete">Hapus</string>
+    <string name="txt_desc">Deskripsi Detail Order</string>
+    <string name="txt_banyak">Banyak</string>
+    <string name="txt_banyak_karyawan">Banyak Karyawan yang Mengerjakan</string>
+    <string name="banyak_karyawan">1</string>
+    <string name="txt_status">Status Pengerjaan</string>
+    <string name="detail_order">Detail Order</string>
+</resources>

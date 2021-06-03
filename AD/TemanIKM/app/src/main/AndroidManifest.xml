@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mtrid2.temanikm">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TemanIKM">
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".onEmployeeDetailActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".AddUpdateItemActivity" />
+        <activity
+            android:name=".OrderInfoActivity"
+            android:label="@string/title_activity_order_info"
+            android:theme="@style/Theme.TemanIKM.NoActionBar" />
+        <activity android:name=".ui.main.OrderInfoActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
