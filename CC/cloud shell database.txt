@@ -1,0 +1,67 @@
+Create Database and Table in GCP 
+
+1. Dashboard -> Navigation -> Databases -> SQL 
+2. Create Instance
+3. Choose database engine : MySQL  
+4. Fill information of instance -> create instance
+
+Activate cloud shell
+
+gcloud auth list
+gcloud config list project
+gcloud sql connect my-sql-instance --user=root
+Enter password xxxxxxxxxxxx
+
+mysql> CREATE DATABASE db_raw;
+mysql> USE db_raw;
+mysql> CREATE TABLE raw (
+	Order_ID VARCHAR (50) NOT NULL,
+	Size INT,
+	Color VARCHAR (20) NOT NULL,
+	Order_Type VARCHAR (20) NOT NULL,
+	Detail_Divan VARCHAR (20) NOT NULL,
+	Buyer_ID INT,
+	Order_Date DATE,
+	Finish_Date DATE,
+	Shipment_Date DATE , 
+	Order_Detail VARCHAR(50) NOT NULL, 
+	Price INT, 
+	PRIMARY KEY(Order_ID)
+);
+
+mysql> CREATE TABLE orderr (
+	Order_ID VARCHAR(50) NOT NULL,
+	Order_Date DATE,
+	Order_Detail VARCHAR(50) NOT NULL, 
+	Order_Status VARCHAR(50) NOT NULL,
+	Order_Deadline DATE,
+	FOREIGN KEY (Order_ID) REFERENCES raw (Order_ID)
+);
+
+
+mysql> CREATE TABLE shipment (
+	Order_ID VARCHAR(50) NOT NULL,
+	Shipment_Date DATE,
+	Shipment_Detail INT NOT NULL,
+	Finish_Date DATE,
+	FOREIGN KEY (Order_ID) REFERENCES raw (Order_ID)
+);
+
+
+mysql> CREATE TABLE details (
+	Order_ID VARCHAR(50) NOT NULL,
+	Size INT,
+	Color VARCHAR(20) NOT NULL,
+	Order_Type VARCHAR(20) NOT NULL,
+	Detail_Divan VARCHAR(20) NOT NULL,
+	FOREIGN KEY (Order_ID) REFERENCES raw (Order_ID)
+);
+
+mysql> CREATE TABLE login (
+	user_id VARCHAR (20) NOT NULL,
+	email VARCHAR (50) NOT NULL,
+	nama VARCHAR (50) NOT NULL,
+	password VARCHAR (20) NOT NULL,
+	role VARCHAR (20) NOT NULL
+);
+
