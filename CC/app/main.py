@@ -1,30 +1,29 @@
 #main.py
+import os
 from flask import Flask, jsonify, request
-import sqlalchemy
-import datetime as dt
-import io
-from datetime import datetime
-import uuid
+import pymysql
 
 
-app = Flask(__name__, template_folder="templates")
-db_user = 'my-sql-instance'
-db_password = 'intense-agency-314911'
-db_name = 'db_raw'
-db_connection_name = 'intense-agency-314911:asia-southeast2:my-sql-instance'
+app = Flask(__name__)
+db_user = os.environ.get('CLOUD_SQL_USERNAME')
+db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
 
 
 def open_connection():
-    db = sqlalchemy.create_engine(
-         sqlalchemy.engine.url.URL(
-          drivername="mysql+pymysql",
-          username="root",
-          password="intense-agency-314911", 
-          host="34.101.233.26", 
-          database="db_raw"
-        )
-    )
-    return db 
+    unix_socket = '/cloudsql/{}'.format(db_connection_name)
+    try:
+        if os.environ.get('GAE_ENV') == 'standard':
+            conn = pymysql.connect(user=db_user, password=db_password,
+                                unix_socket=unix_socket, db=db_name,
+                                cursorclass=pymysql.cursors.DictCursor
+                                )
+    except pymysql.MySQLError as e:
+        print(e)
+
+    return conn
+
 
 db = open_connection()
 

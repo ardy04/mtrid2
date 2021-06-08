@@ -1,2 +1,8 @@
 #app.yaml
 runtime: python37
+
+env_variables:
+  CLOUD_SQL_USERNAME: root
+  CLOUD_SQL_PASSWORD: intense-agency-314911
+  CLOUD_SQL_DATABASE_NAME: db_raw
+  CLOUD_SQL_CONNECTION_NAME: intense-agency-314911:asia-southeast2:my-sql-instance
