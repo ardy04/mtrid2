@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+}
+
+.male th {
+    background-color: #add8e6;
+    color: white;
+}
+
+.female th {
+    background-color: #77dd77;
+    color: white;
+}
+
+tr:nth-child(odd) { background-color:#eee; }
+tr:nth-child(even) { background-color:#fff; }
+
+tr:hover { background-color: #ffff99;}
+
+/* table thead { 
+    display:block; 
+}
+
+table tbody { 
+    height:300px; 
+    overflow-y:scroll; 
+}
+
+
+table tbody tr {
+    border-right: 200px;
+} */
+
+table thead tr {
+  width: 200%;
+}
+
+table, td, th{
+  border: 1px solid black;
+  width: 200%;
+}
+
+table thead {
+  position: sticky;
+}
+
+table {
+  border-collapse: collapse;
+  width: 600px;
+  display: block;
+  height:1000px; 
+  overflow-y:scroll; 
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active">TemanIKM</a>
+  <a href="/">Sales Dashboard</a>
+  <a href="/information">Order Information</a>
+</div>
+
+<div style="display: flex;">
+<div class="page" style="flex: 33%; margin-left: 10%;">
+    {% for table in tables2 %}
+      <h2 style="margin-left: 17%;">Order Detail</h2>
+      {{ table|safe }}
+    {% endfor %}
+</div>
+<div style="flex: 33%;">
+    {% for table in tables %}
+      <h2 style="margin-left: 17%;">Shipment Detail</h2>
+      {{ table|safe }}
+    {% endfor %}
+</div>
+</div>
+
+</body>
+<script>
+    
+</script>
+</html>

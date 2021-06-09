@@ -97,14 +97,23 @@ table {
   overflow-y:scroll; 
 }
 
+.prediksi table{
+  height: 100%;
+  overflow-y: hidden !important;
+}
+
+.prediksi table td th {
+  width: 100%;
+}
+
 </style>
 </head>
 <body>
 
 <div class="topnav">
   <a class="active">TemanIKM</a>
-  <a href="/">Sales Dashboard</a>
-  <a href="/information">Order Information</a>
+  <a href="/login/dashboard">Sales Dashboard</a>
+  <a href="/login/information">Order Information</a>
 </div>
 
 <div style="display: flex;">
@@ -123,15 +132,63 @@ table {
 <div style="flex: 33%;">
   <h2>Add Order</h2>
   <form action="/success" method = "POST">
+    <label for="fname">Size:</label><br>
+      <select type="text" id="fname" name="size" style="width: 80%;" required>
+        <option value="120">120</option>
+        <option value="140">140</option>
+        <option value="160">160</option>
+        <option value="180">180</option>
+      </select><br>
+    <label for="fname">Color:</label><br>
+      <select type="text" id="fname" name="color" style="width: 80%;" required>
+        <option value="Abu-Abu">Abu-Abu</option>
+        <option value="Coklat">Coklat</option>
+        <option value="Merah">Merah</option>
+        <option value="Hitam">Hitam</option>
+        <option value="Pink">Pink</option>
+      </select><br>
+    <label for="fname">Order Type:</label><br>
+    <select type="text" id="fname" name="order" style="width: 80%;" required>
+      <option value="Tipe 1">Tipe 1</option>
+      <option value="Tipe 2">Tipe 2</option>
+      <option value="Tipe 3">Tipe 3</option>
+      <option value="Tipe 4">Tipe 4</option>
+    </select><br>
     <label for="fname">Order Detail:</label><br>
-    <input type="text" id="fname" name="detail" style="width: 80%;"><br>
+      <select type="text" id="fname" name="detail" style="width: 80%;" required>
+        <option value="Biasa">Biasa</option>
+        <option value="Laci">Laci</option>
+        <option value="Permata">Permata</option>
+      </select><br>
     <label for="lname">Order Deadline:</label><br>
-    <input type="datetime-local" id="lname" name="deadline" style="width: 80%;"><br><br>
+    <input type="datetime-local" id="lname" name="deadline" style="width: 80%;" required><br>
     <input type="submit" value="Submit">
   </form> 
+  <div class="prediksi" style="margin-top: 50%;">
+    <table>
+      <tr>
+        <th>Tipe Order</th>
+        <th>Prediksi Minggu Kedepan</th>
+      </tr>
+      <tr>
+        <td>Tipe 1</td>
+        <td>{{  tipe1  }}</td>
+      </tr>
+      <tr>
+        <td>Tipe 2</td>
+        <td>{{  tipe2  }}</td>
+      </tr>
+      <tr>
+        <td>Tipe 3</td>
+        <td>{{  tipe3  }}</td>
+      </tr>
+      <tr>
+        <td>Tipe 4</td>
+        <td>{{  tipe4  }}</td>
+      </tr>
+  </div>
 </div>
 </div>
-
 </body>
 <script>
     
